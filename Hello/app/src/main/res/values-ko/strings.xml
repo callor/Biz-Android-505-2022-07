@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">안녕</string>
+    <string name="action_settings">설정</string>
+    <string name="first_fragment_label">첫번번째 화면</string>
+    <string name="second_fragment_label">두번재 화면</string>
+    <string name="next">다음</string>
+    <string name="previous">이전</string>
+    <string name="hello_first_fragment">안녕 첫번째 화면</string>
+    <string name="hello_second_fragment">안녕 두번재 화면</string>
+    <string name="prompt_email">이메일</string>
+    <string name="prompt_password">비밀번호</string>
+    <string name="action_sign_in">로그인 또는 회원가입</string>
+    <string name="action_sign_in_short">로그인</string>
+    <string name="welcome">안녕</string>
+    <string name="invalid_username">유져이름 오류</string>
+    <string name="invalid_password">비밀번호는 5자 이상</string>
+    <string name="login_failed">로그인 오류</string>
+</resources>
