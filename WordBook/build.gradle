@@ -14,6 +14,8 @@ task clean(type: Delete) {
 ext {
     core_version = '1.9.0'
 
+    activityVersion = '1.5.1'
+
     // 안드로이드에서 폰에 내장된 DBMS 를 사용하기 위한
     // 도구를 선언하기 위하여 Version 변수를 선언한다
     coroutinesVersion = '1.6.4'

@@ -18,6 +18,6 @@ class WordApplication : Application() {
 
     // lazy : DB 연결이 필요한 경우에 DB Connection 을 생성하여 준비하라
     private val database by lazy { WordDatabase.getDataBase(this,appScope) }
-    private val repository by lazy { WordRepository(database.wordDao())}
+    val repository by lazy { WordRepository(database.wordDao())}
 
 }
