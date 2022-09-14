@@ -1,10 +1,11 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 android {
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.callor.word"
@@ -29,6 +30,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
 }
 
 dependencies {
@@ -40,17 +42,27 @@ dependencies {
 
     // lifecycle 도구를 사용하여 DB 연동하기
     // Project gradle 에 선언된 property 를 사용하여 버전번호 일치하기
-    runtimeOnly "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.lifecyleVersion"
-    runtimeOnly "androidx.lifecycle:lifecycle-livedata-ktx:$lifecyleVersion"
-    runtimeOnly "androidx.lifecycle:lifecycle-common-java8:$lifecyleVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.lifecyleVersion"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecyleVersion"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecyleVersion"
 
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10'
     api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
     api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
 
+    /*
+    Android 스마트폰에는 SQLite 라는 DBMS 가 내장되어 있다
+    과거에는 복잡한 SQL 명령을 직접사용하여 DBMS 에 접근했다
+    DB 엔진의 투명성을 유지하면서 class, 객체 타입으로 DB 핸들링 하기 위하여
+    사용하는 일종의 JPA 도구
+     */
+    implementation "androidx.room:room-ktx:$roomVersion"
 
-
-
+    /*
+    kapt(Kotlin Annotation Processing Tool)
+    Kotlin 코드에서 Annotation 을 처리하기 위한 설정
+     */
+    kapt "androidx.room:room-compiler:$roomVersion"
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
