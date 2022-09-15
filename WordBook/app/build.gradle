@@ -39,7 +39,8 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation "androidx.activity:activity-ktx:$activityVersion"
+    implementation 'androidx.activity:activity-ktx:1.5.1'
+
 
     // lifecycle 도구를 사용하여 DB 연동하기
     // Project gradle 에 선언된 property 를 사용하여 버전번호 일치하기

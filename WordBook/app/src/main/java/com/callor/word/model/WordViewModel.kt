@@ -21,7 +21,7 @@ class WordViewModelFactory(private val repository: WordRepository)
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if(modelClass.isAssignableFrom(WordViewModel::class.java)) {
-            return super.create(modelClass)    
+            return WordViewModel(repository) as T
         }
         throw IllegalAccessException("View Model 클래스 없음")
     }

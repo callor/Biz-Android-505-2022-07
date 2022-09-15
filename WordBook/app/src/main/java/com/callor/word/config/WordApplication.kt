@@ -8,6 +8,12 @@ import kotlinx.coroutines.SupervisorJob
 
 /*
 App 이 실행되는 동안에 전체적으로 사용하는 변수 등을 선언하는 클래스
+
+Application 클래스를 상속받은 WordApplication 클래스는
+프로젝트가 run 되면 제일먼저 객체로 생성되고
+최종적으로 repository 변수를 사용할수 있도록 준비해 준다
+
+
  */
 class WordApplication : Application() {
 
