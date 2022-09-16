@@ -10,9 +10,16 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.callor.word.helper.WordDiffUtil;
+import com.callor.word.helper.WordListAdpter;
 import com.callor.word.model.WordVO;
 import com.callor.word.model.WordViewModel;
+import com.google.android.material.textfield.TextInputEditText;
+
+import java.util.List;
 
 /*
 Activity
@@ -24,7 +31,10 @@ public class MainActivity extends AppCompatActivity {
     private int imageWidth = 0;
     private int imageHeight = 0;
 
+    private TextInputEditText txt_word;
     private WordViewModel viewModel ;
+
+    private RecyclerView wordListView;
 
     /*
     안드로이드 앱이 실행될때 화면을 만들어주는 Method
@@ -43,66 +53,43 @@ public class MainActivity extends AppCompatActivity {
                         WordViewModel.class
         );
 
-        /*
-        ViewModel 활용하여 tbl_words 데이터베이스로 부터 SELECT All 수행하라
-         */
-        viewModel.selectAll().observe(this,
-                wordList -> {
-                for(WordVO word : wordList) {
-                    Log.d("MAIN", word.getWord());
-                }
-        });
 
 
-        // activity_main.xml 에 설정된 btn_size 위젯을 사용하기 위한
+        // activity_main.xml 에 설정된 btn_save 위젯을 사용하기 위한
         // 객체로 설정
-        Button btn_size = findViewById(R.id.btn_size);
+        Button btn_save = findViewById(R.id.btn_save);
+        txt_word = findViewById(R.id.txt_word);
+        wordListView = findViewById(R.id.word_list);
+
+        WordListAdpter adapter = new WordListAdpter(new WordDiffUtil());
+        wordListView.setAdapter(adapter);
+        wordListView.setLayoutManager(
+                new LinearLayoutManager(this, RecyclerView.VERTICAL,false));
+
+        // adapter 와 데이터 연결
+        viewModel.selectAll().observe(this,
+                wordList -> adapter.submitList(wordList)
+        );
 
 
-        // btb_size Button 을 클릭 또는 Touch 했을때
+
+        // btb_save Button 을 클릭 또는 Touch 했을때
         // 할일을 지정하기(이벤트 핸들러 설정)
 
         // 무명클래스, 익명클래스 방식으로 이벤트 핸들러 설정하기
-        btn_size.setOnClickListener(new View.OnClickListener() {
+        btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                // btn_save 버튼이 클릭되면 txt_word input box 에 입력된 문자열을
+                // word 변수에 담기
+                String word = txt_word.getText().toString();
+
                 Toast.makeText(view.getContext(),
-                        "Button Click",
+                        word,
                         Toast.LENGTH_SHORT).show();
 
-                String word = String.format("Korea %d",
-                        (int)(Math.random() * 100));
-
-                WordVO wordVO = new WordVO(0,word);
-                viewModel.insert(wordVO);
-
-                // ImageView 객체 선언
-                ImageView imageView = findViewById(R.id.image);
-
-                // ConstraintLayout 에 포함된
-                // ImageView 의 layout 정보를 가져오기
-                // import android.widget.ConstraintLayout;
-                ConstraintLayout.LayoutParams params
-                        = (ConstraintLayout.LayoutParams)
-                        imageView.getLayoutParams();
-
-                if(imageWidth == 0) {
-                    imageWidth = params.width;
-                    imageHeight = params.height;
-                }
-
-                if(imageWidth == params.width) {
-                    // ImageView 의 width 와 height 를 변경하기
-                    params.width = 1000; // metrics.widthPixels;
-                    params.height = 1400; // metrics.heightPixels;
-                } else {
-                    params.width = imageWidth;
-                    params.height = imageHeight;
-                }
-
-                // 변경된 정보를 적용하기
-                imageView.setLayoutParams(params);
-
+                viewModel.insert(new WordVO(0,word ));
             }
         });
 

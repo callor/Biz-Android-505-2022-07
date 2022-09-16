@@ -12,10 +12,10 @@ public class WordVO {
     AUTO_INCREMENT 로 설정
      */
     @PrimaryKey(autoGenerate = true)
-    private long seq;
+    private int seq;
     private String word;
 
-    public WordVO(long seq, String word) {
+    public WordVO(int seq, String word) {
         this.seq = seq;
         this.word = word;
     }
@@ -23,11 +23,11 @@ public class WordVO {
     public WordVO() {
     }
 
-    public long getSeq() {
+    public int getSeq() {
         return seq;
     }
 
-    public void setSeq(long seq) {
+    public void setSeq(int seq) {
         this.seq = seq;
     }
 

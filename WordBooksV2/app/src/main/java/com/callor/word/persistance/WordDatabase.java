@@ -61,7 +61,7 @@ public abstract class WordDatabase extends RoomDatabase {
                             context.getApplicationContext(),
                             WordDatabase.class,"wordDB"
                     ).fallbackToDestructiveMigration()
-                      .addCallback(roomCallBack)
+                      // .addCallback(roomCallBack)
                       .build();
                 }
             }
@@ -80,11 +80,11 @@ public abstract class WordDatabase extends RoomDatabase {
                                 WordDao wordDao = DB_CONN.wordDao();
                                 wordDao.deleteAll();
 
-                                WordVO wordVO = new WordVO(1L,"Korea");
+                                WordVO wordVO = new WordVO(0,"Korea");
                                 wordDao.insert(wordVO);
 
-                                wordDao.insert(new WordVO(2L,"대한민국"));
-                                wordDao.insert(new WordVO(3L,"Republic of Korea"));
+                                wordDao.insert(new WordVO(0,"대한민국"));
+                                wordDao.insert(new WordVO(0,"Republic of Korea"));
                             }
                     );
                 }

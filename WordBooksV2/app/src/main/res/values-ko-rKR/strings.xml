@@ -3,4 +3,6 @@
     <string name="app_name">나의 단어장</string>
     <string name="text_welcome">안녕하세요</string>
     <string name="text_nation">대한민국!!!</string>
+    <string name="btn_save">추가</string>
+    <string name="txt_word_hint">단어를 입력하세요</string>
 </resources>

@@ -2,4 +2,6 @@
     <string name="app_name">WordBooks</string>
     <string name="text_welcome">Hello</string>
     <string name="text_nation">Republc of Korea</string>
+    <string name="btn_save">add</string>
+    <string name="txt_word_hint">Input Word</string>
 </resources>
