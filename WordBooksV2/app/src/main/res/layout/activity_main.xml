@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!--
+    wrap_content
+    box(TextView) 의 크기를 30dp 크기의 안녕하세요 문자열을 감싸고 있는 만큼만
+    자동으로 만들어라
+
+    app:layout_constraint*
+    ConstraintLayout 에 포함된 도구들에서 사용하는 속성
+    위치잡기를 수행할때 어떻게 위치를 지정할 것인가를 나타내는 값
+
+
+    -->
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_welcome"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/text2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--
+    TextSize 단위
+    dp : Density-Independent Pixel : 장치독립적 크기
+        디스플레이, 글꼴 크기에 비례하여 변동하지 않도록
+        pt, px
+    sp : Scale-Independent Pixel : 시스템 글꼴 비례하여 설정
+        글꼴 크기에 비례하여 변동하도록
+
+    DPI : Dot Per Inch : 1 인치에 몇개의 픽셀을 배치할 것인가
+        이미지 등에서 선명도를 유지하도록 하는 역할도 한다
+    ldpi : 120dpi
+    mdpi : 16dpi(표준 안드로이드 폰 선명도)
+    hdpi : 240dpi
+    xhdpi : 320dpi
+    xxhdpi : 480dpi
+    xxxhdpi : 640dpi
+    -->
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_nation"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text1"
+        />
+
+    <Button
+        android:id="@+id/btn_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이미지 변경"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        app:layout_constraintTop_toBottomOf="@+id/btn_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/image"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

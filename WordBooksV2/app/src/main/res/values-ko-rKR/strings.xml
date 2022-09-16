@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">나의 단어장</string>
+    <string name="text_welcome">안녕하세요</string>
+    <string name="text_nation">대한민국!!!</string>
+</resources>
