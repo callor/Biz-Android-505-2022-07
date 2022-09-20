@@ -69,6 +69,9 @@ public class FirstFragment extends Fragment {
                         RecognizerIntent.EXTRA_LANGUAGE_MODEL,
                         RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
 
+                intent.putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE,getActivity().getPackageName());
+                intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE,"ko-KR");
+
                 // STT 가 실행되었을때 화면에 Prompt 를 띄우고 기다려라
                 intent.putExtra(RecognizerIntent.EXTRA_PROMPT,"말을 시작하세요");
 
