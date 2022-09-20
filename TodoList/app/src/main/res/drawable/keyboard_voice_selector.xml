@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@drawable/ic_baseline_keyboard_voice_black"/>
-    <item
-        android:drawable="@drawable/ic_baseline_keyboard_voice_yello"
-        android:state_pressed="true"
-        />
+    <item android:drawable="@drawable/ic_baseline_keyboard_voice_yellow" android:state_pressed="true"/>
+    <item android:drawable="@drawable/ic_baseline_keyboard_voice_black"  />
 </selector>
 <!--
 drawable Resource 를 활용하여 터치 hover 효과 만들기

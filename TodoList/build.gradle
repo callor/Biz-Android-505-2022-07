@@ -10,9 +10,6 @@ task clean(type: Delete) {
 
 // 프로젝트 gradle 에서 사용할 공통속성(변수) 선언하기
 ext {
-
     lifeCycleVersion = '2.5.1'
-    navVersion = '2.5.1'
-
-
+    navVersion = '2.5.2'
 }
