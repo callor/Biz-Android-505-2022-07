@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/ic_baseline_keyboard_voice_black"/>
+    <item
+        android:drawable="@drawable/ic_baseline_keyboard_voice_yello"
+        android:state_pressed="true"
+        />
+</selector>
+<!--
+drawable Resource 를 활용하여 터치 hover 효과 만들기
+1. 두개의 번갈아 보여줄 아이콘 파일 생성하기
+2. selector 로 감싸진 parent 파일 생성하기
+3. android:state_pressed 를 true 로 설정한 item 은
+    화면을 터치했을때 보여줄 아이콘
+-->
