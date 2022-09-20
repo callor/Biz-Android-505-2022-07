@@ -34,12 +34,7 @@ public class FirstFragment extends Fragment {
 
         binding = FragmentFirstBinding.inflate(inflater,container,false);
         View view = binding.getRoot();
-        binding.mikeImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-            }
-        });
 
 
         return view;
